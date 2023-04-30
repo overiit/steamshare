@@ -63,7 +63,7 @@ export async function GetPlayerLookup (req: http.IncomingMessage, ctx: SteamCont
         steam_id: steamid.getSteamID64(),
         avatar_hash: summaries.response.players[0].avatarhash,
         username: summaries.response.players[0].personaname,
-        last_update: new Date(),
+        last_update: new Date(0),
         vanity_last_update: foundByVanity ? new Date() : undefined,
         vanity_url: foundByVanity ? steam_input : undefined
     });
@@ -96,7 +96,7 @@ export async function GetPlayerPreload(req: http.IncomingMessage, ctx: SteamCont
 
     games = games.filter(game => !gamesOwned.find(g => g.appid === game.appid));
 
-    if (games.length === 0 && !hard_reload && steamUser.last_update.getTime() > Date.now() - 1000 * 60 * 60 * 24 * 1) {
+    if (games.length > 0 && !hard_reload && steamUser.last_update.getTime() > Date.now() - 1000 * 60 * 60 * 24 * 1) {
         return { success: true }
     }
 
@@ -106,7 +106,7 @@ export async function GetPlayerPreload(req: http.IncomingMessage, ctx: SteamCont
 
     req.once("close", () => {
         stop = true;
-        console.log("stopping")
+        console.log("stopping due to connection close")
     })
 
     for (const game of games) {
@@ -116,9 +116,7 @@ export async function GetPlayerPreload(req: http.IncomingMessage, ctx: SteamCont
             await GetGameDetails(req, ctx, new URLSearchParams({
                 appid: game.appid.toString()
             }));
-        } catch (err) {
-            console.error("Failed loading details", err)
-        }
+        } catch (err) {}
         try {
             await SteamUserOwnedGameTable.insert({
                 steam_id: steamUser.steam_id,
