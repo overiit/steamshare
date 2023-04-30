@@ -6,7 +6,8 @@
     <header>
         <div class="logo" />
         <div class="name">
-            <a href="/">OVERIIT</a>
+            <a href="/">STEAMSHARE</a>
+            <small style="font-size: .8rem;">by <a href="https://overiit.com" target="_blank">OVERIIT</a></small>
         </div>
       </header>
       <SvelteToast />
@@ -23,7 +24,7 @@
           </p>
         </div>
         <a href="https://overiit.com" target="_blank">
-            <Button grey>Hire Me!</Button>
+            <Button grey>HIRE ME</Button>
         </a>
       </footer>
 </main>
@@ -50,6 +51,15 @@
             .name {
                 font-size: 2rem;
                 font-weight: 900;
+                small {
+                    a { 
+                        border-bottom: 1px dotted rgba(255, 255, 255, .5);
+                        &:hover {
+                            border-bottom-style: solid;
+                            border-bottom-color: white;
+                        }
+                    }
+                }
             }
         }
         footer {

@@ -4,7 +4,7 @@
 
 </script>
 <section>
-    <h1>GAME SHARE</h1>
+    <h1>STEAM SHARE</h1>
     <p>Discover the games you share with friends! See which games you and your friends have in common and start playing together today.</p>
     <br />
     <a href="/create">
