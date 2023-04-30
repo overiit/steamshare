@@ -16,13 +16,15 @@
       <footer>
         <div class="data">
           <p>
-            GameShare is a hobby project and <b>is not affiliated with </b>
+            SteamShare is a hobby project and <b>is not affiliated with </b>
             Valve or Steam. <br />
             Steam and the Steam logo are trademarks of Valve Corporation. All other trademarks
             are property of their respective owners.
           </p>
         </div>
-        <Button grey>FEEDBACK</Button>
+        <a href="https://overiit.com" target="_blank">
+            <Button grey>Hire Me!</Button>
+        </a>
       </footer>
 </main>
 
