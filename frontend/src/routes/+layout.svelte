@@ -6,7 +6,7 @@
     <header>
         <div class="logo" />
         <div class="name">
-            <a href="/">STEAMSHARE</a>
+            <a class="main" href="/">STEAMSHARE</a>
             <small style="font-size: .8rem;">by <a href="https://overiit.com" target="_blank">OVERIIT</a></small>
         </div>
       </header>
@@ -70,6 +70,33 @@
             p {
                 font-size: .75rem;
                 color: rgba(255, 255, 255, .5);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        main {
+            header {
+                .name {
+                    display: flex;
+                    flex-flow: column;
+                    text-align: center;
+                    .main {
+                        font-size: 1.5rem;
+                    }
+                    small {
+                        font-size: .75rem;
+                    }
+                }
+            }
+            footer {
+                
+                flex-flow: column-reverse;
+                align-items: center;
+                p {
+                    text-align: center;
+                    font-size: .5rem;
+                }
             }
         }
     }

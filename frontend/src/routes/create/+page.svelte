@@ -41,7 +41,7 @@
   }
 
   function CreateGroup() {
-    if (members.length < 2) return;
+    if (members.length < 2) return toast.push("You need at least 2 members in your group");
     fetch(`${PUBLIC_BASE_API}/group/create?steam_inputs=${members.map(member => member.steam_id).join(",")}`)
       .then((res) => res.json())
       .then((data) => {
@@ -169,13 +169,14 @@
     h1 {
       font-size: 2rem;
       font-weight: 700;
-      line-height: 2rem;
+      line-height: 2.5rem;
     }
     p {
       font-size: 0.8rem;
       line-height: 0.8rem;
       margin-bottom: 0.5rem;
       font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
     }
     hr {
       border-color: rgba(255, 255, 255, 0.35);
@@ -184,7 +185,7 @@
 
     .avatars {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem;
       .avatar {
@@ -305,6 +306,19 @@
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    section {
+      h1 {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+      p {
+        font-size: 0.7rem;
+        line-height: 0.7rem;
+      }
     }
   }
 </style>

@@ -24,6 +24,18 @@
         p {
             font-size: .8rem;
             line-height: .8rem;
+                color: rgba(255, 255, 255, .5);
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        section {
+            h1 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+            p {
+                font-size: .75rem;
+            }
         }
     }
 </style>

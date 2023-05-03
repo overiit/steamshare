@@ -118,7 +118,7 @@
           <div class="actions">
             <div>
               <a href="steam://run/{game.appid}">
-                <Button small>LAUNCH</Button>
+                <Button small primary>LAUNCH</Button>
               </a>
             </div>
             <div>
@@ -148,6 +148,8 @@
 
     .avatars {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 0.5rem;
       margin-bottom: 0.5rem;
       .avatar {
@@ -243,6 +245,7 @@
         .actions {
           display: flex;
           gap: 0.5rem;
+          margin-bottom: .5rem;
         }
         .tags {
           display: flex;
@@ -270,6 +273,40 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    .avatars {
+      .avatar {
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+    }
+    .games {
+      .game {
+        flex-flow: column;
+        .banner {
+          max-width: 100%;
+          width: 100%;
+          height: inherit;
+          margin-right: 0;
+          img {
+            height: inherit;
+            width: 100%;
+          }
+        }
+        .details {
+          .name {
+            font-size: .8rem;
+          }
+          .author {
+            font-size: .6rem;
+          }
+        }
+      }
+    }
   }
 }
 </style>
